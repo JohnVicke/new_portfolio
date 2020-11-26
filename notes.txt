@@ -1,0 +1,4 @@
+Hi, I'm Vktor ==> Spara Hi, I'm
+Flytta hela "skrivande" strängen till höger.
+skriv om Viktor
+Ta bort skrivande strängen

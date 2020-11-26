@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+body {
+  background: #22223a;
+}
+h1 {
+  color: #e17c69;
+}
+p {
+  color: #fefefe;
+}
+
+.root {
+  width: 100%;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
+
+.animated {
+  background: transparent;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(360deg, #22223a 0%, #613b5e 100%);
+}
+
+.landing-container {
+  padding-top: 4em;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  right: 0;
+  .animated-mobile {
+    width: 100vw;
+  }
+}
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.about-me {
+  margin-top: 10em;
+  text-align: left;
+  overflow-y: hidden;
+  p {
+    animation: 2s cubic-bezier(0.76, 0, 0.24, 1) 2s 1 slideFromBottom;
+    transition: opacity 2s;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .landing-container {
+    margin-top: 0;
+  }
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4em;
+    margin: 0 1rem;
+  }
+}
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 7rem);
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 4rem);
+}
+
+.logo {
+  width: 100%;
+}
+
+.section-heading {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 7rem);
+}
+
+.react-rotating-text-cursor {
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
+}
+
+@keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.projects-container {
+  margin-left: 4em;
+}
