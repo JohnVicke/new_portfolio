@@ -5,6 +5,7 @@ import github from "react-useanimations/lib/github";
 import linkedin from "react-useanimations/lib/linkedin";
 import { Box, Container, Grow, makeStyles } from "@material-ui/core";
 import content from "../content/content.json";
+import useCursorHandlers from "../utils/useCursorHandlers";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -26,13 +27,15 @@ const items = content["nav-items"];
 const Navbar = () => {
   const [loaded, setLoaded] = useState(false);
 
+  const classes = useStyles();
+  const cursorHandlers = useCursorHandlers();
+
   useEffect(() => {
     setTimeout(() => {
       setLoaded(true);
     }, 1500);
   }, []);
 
-  const classes = useStyles();
   return (
     <Container maxWidth="xl" className={classes.root}>
       <Box display="flex" justifyContent="space-between" style={{ padding: "1em 0" }} className="navbar">
@@ -43,7 +46,9 @@ const Navbar = () => {
         <Box display="flex" justifyContent="space-between">
           {items.map((x, i) => (
             <Grow in={loaded} style={{ transformOrigin: "0 0 0" }} {...(loaded ? { timeout: 1000 * (i + 2) } : {})}>
-              <p className={classes.right}>{x}</p>
+              <p {...cursorHandlers} className={classes.right}>
+                {x}
+              </p>
             </Grow>
           ))}
         </Box>

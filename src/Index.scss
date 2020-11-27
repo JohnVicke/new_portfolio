@@ -4,7 +4,7 @@
 * {
   padding: 0;
   margin: 0;
-  overflow: auto;
+  cursor: none;
 }
 body {
   background: #22223a;
@@ -24,6 +24,16 @@ p {
 
 .animated {
   background: transparent;
+}
+
+.svg-cursor::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: transparent;
+  z-index: 9999;
+  width: 100%;
+  height: 50vh;
 }
 
 .background {
@@ -55,11 +65,11 @@ p {
 }
 
 .about-me {
+  height: 50vh;
   margin-top: 10em;
   text-align: left;
   overflow-y: hidden;
   p {
-    animation: 2s cubic-bezier(0.76, 0, 0.24, 1) 2s 1 slideFromBottom;
     transition: opacity 2s;
   }
 }
@@ -111,8 +121,4 @@ p {
   100% {
     opacity: 0;
   }
-}
-
-.projects-container {
-  margin-left: 4em;
 }

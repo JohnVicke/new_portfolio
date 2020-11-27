@@ -5,10 +5,17 @@ import LandingWeb from "./assets/landing_web.svg";
 import LandingMob from "./assets/landing_mob.svg";
 import "./Index.scss";
 import Projects from "./components/Projects";
+import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 
 import { useMediaQuery } from "react-responsive";
 import Navbar from "./components/Navbar";
-import { Container } from "@material-ui/core";
+import { Container, Box } from "@material-ui/core";
+import Skills from "./components/Skills";
+import FeaturedProject from "./components/FeaturedProject";
+import Cursor from "./components/Cursor";
+import useMousePosition from "./hooks/useMousePosition";
+import CursorContextProvider from "./context/CursorContext";
+import useCursorHandlers from "./utils/useCursorHandlers";
 
 const App = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -19,7 +26,9 @@ const App = () => {
 
   const getLandingLogo = () => {
     return !isMobile ? (
-      <object className="animated" type="image/svg+xml" data={LandingWeb}></object>
+      <div class="svg-cursor">
+        <object className="animated" type="image/svg+xml" data={LandingWeb}></object>
+      </div>
     ) : (
       <object className="animated-mobile" type="image/svg+xml" data={LandingMob}></object>
     );
@@ -71,22 +80,33 @@ const App = () => {
 
   return (
     <div className="root">
-      <Navbar />
-      <div className="background" />
-      <div className="landing-container">{getLandingLogo()}</div>
-      <Container maxWidth="xl">
-        <div style={{ visibility: `${visible ? "visible" : "hidden"}` }}>
-          <div className="about-me">
-            {visible && <>{headingText()}</>}
-            <p style={{ opacity: `${pVisible ? "100" : "0"}` }}>
-              Versatile software developer with an attention to speed, flexability and quality. Ambitious problem solver
-              that loves to create cool stuff. Interested in technoology and everything in its orbit.
-            </p>
-          </div>
-          <div className="projects-container"></div>
-          <div className="skills"></div>
-        </div>
-      </Container>
+      <CursorContextProvider>
+        <Navbar />
+        <ParallaxProvider>
+          <Cursor />
+          <div className="background" />
+          <div className="landing-container">{getLandingLogo()}</div>
+          <Container maxWidth="xl">
+            <div style={{ visibility: `${visible ? "visible" : "hidden"}` }}>
+              <Parallax y={[-20, 20]}>
+                <div className="about-me">
+                  {visible && <>{headingText()}</>}
+                  <p style={{ opacity: `${pVisible ? "100" : "0"}` }}>
+                    Versatile software developer with an attention to speed, flexability and quality. Ambitious problem
+                    solver that loves to create cool stuff. Interested in technoology and everything in its orbit.
+                  </p>
+                </div>
+              </Parallax>
+              <div className="projects-container">
+                <FeaturedProject />
+              </div>
+              <Box>
+                <Skills />
+              </Box>
+            </div>
+          </Container>
+        </ParallaxProvider>
+      </CursorContextProvider>
     </div>
   );
 };

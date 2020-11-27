@@ -16,6 +16,7 @@
     "react-responsive": "^8.1.0",
     "react-rotating-text": "^1.4.1",
     "react-scripts": "3.4.3",
+    "react-scroll-parallax": "^2.3.5",
     "react-spring": "^8.0.27",
     "react-typewriting-effect": "^1.0.4",
     "react-use-gesture": "^8.0.0",
