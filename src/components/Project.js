@@ -5,9 +5,10 @@ import VisibilitySensor from "react-visibility-sensor";
 
 const useStyles = makeStyles((theme, props) => ({
   root: (props) => ({
-    margin: "2rem",
     "& h1": (props) => ({}),
-    "& img": (props) => ({}),
+    "& img": (props) => ({
+      borderRadius: 10,
+    }),
   }),
 }));
 
@@ -24,13 +25,9 @@ const Project = (props) => {
     return <Box>Open LOL!</Box>;
   }
   return (
-    <Container maxWidth="xl" style={{ width: "100%" }}>
-      <Box container className={classes.root}>
-        <img src={image} />
-        <h1>{header}</h1>
-        <p>{info}</p>
-      </Box>
-    </Container>
+    <Box container className={classes.root}>
+      <img src={image} />
+    </Box>
   );
 };
 

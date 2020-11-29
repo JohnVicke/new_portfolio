@@ -2,33 +2,85 @@ import React, { useState, useEffect } from "react";
 import NavItems from "./NavItems";
 import UseAnimations from "react-useanimations";
 import github from "react-useanimations/lib/github";
+import menu from "react-useanimations/lib/menu2";
 import linkedin from "react-useanimations/lib/linkedin";
-import { Box, Container, Grow, makeStyles } from "@material-ui/core";
+import { Box, Container, getContrastRatio, Grow, makeStyles, Slide } from "@material-ui/core";
 import content from "../content/content.json";
-import useCursorHandlers from "../utils/useCursorHandlers";
+import useResize from "../hooks/useResize";
+import vima from "../assets/vima_no_text.svg";
 
 const useStyles = makeStyles(() => ({
   root: {
+    zIndex: 999,
     position: "fixed",
     top: 0,
     left: "50%",
     transform: "translateX(-50%)",
+    backgroundColor: "#22223a",
+    width: "100%",
+    "& p": {
+      fontSize: ".8rem",
+    },
   },
   right: {
     fontSize: "1.2rem",
     marginLeft: "2em",
     color: "#e17c69",
     fontWeight: 800,
+    cursor: "pointer",
+  },
+  hamP: {
+    fontSize: "1.2rem",
+    color: "#e17c69",
+    fontWeight: 800,
+    cursor: "pointer",
+  },
+  modal: {
+    paddingTop: "1em",
+    paddingBottom: "1em",
+    position: "fixed",
+    bottom: "46px",
+    right: 0,
+    width: "100%",
+    backgroundColor: "#22223a",
+    zIndex: 1,
+    overflowY: "hidden",
+  },
+  navbar: {
+    zIndex: 999999,
+  },
+  hamRoot: {
+    bottom: 0,
+    width: "100%",
+    zIndex: 999,
+    position: "fixed",
+    left: "50%",
+    transform: "translateX(-50%)",
+    backgroundColor: "#22223a",
+    width: "100%",
   },
 }));
 
 const items = content["nav-items"];
 
-const Navbar = () => {
-  const [loaded, setLoaded] = useState(false);
-
+const Navbar = ({ callback }) => {
   const classes = useStyles();
-  const cursorHandlers = useCursorHandlers();
+  const width = useResize();
+
+  const [loaded, setLoaded] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const goTo = (x) => {
+    callback(x);
+  };
+
+  const openLinkedIn = () => {
+    window.open("https://www.linkedin.com/in/viktor-malmedal/");
+  };
+
+  const openGitHub = () => {
+    window.open("https://github.com/JohnVicke");
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,24 +88,60 @@ const Navbar = () => {
     }, 1500);
   }, []);
 
-  return (
-    <Container maxWidth="xl" className={classes.root}>
-      <Box display="flex" justifyContent="space-between" style={{ padding: "1em 0" }} className="navbar">
-        <Box width="80px" display="flex" justifyContent="space-between" className="navbar-left">
-          <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} />
-          <UseAnimations strokeColor="#e17c69" loop size={30} animation={linkedin} />
+  if (width < 425) {
+    return (
+      <Box>
+        <Box display="flex" justifyContent="space-between" style={{ padding: "0.5em " }} className={classes.hamRoot}>
+          <Box display="flex" className="navbar-left">
+            <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} onClick={openGitHub} />
+            <UseAnimations strokeColor="#e17c69" loop size={30} animation={linkedin} onClick={openLinkedIn} />
+          </Box>
+          <img src={vima} className={classes.vima} style={{ width: "30px", marginRight: "30px" }} />
+          <UseAnimations
+            reverse={open}
+            onClick={() => setOpen(!open)}
+            strokeColor="#e17c69"
+            size={30}
+            animation={menu}
+          />
         </Box>
-        <Box display="flex" justifyContent="space-between">
-          {items.map((x, i) => (
-            <Grow in={loaded} style={{ transformOrigin: "0 0 0" }} {...(loaded ? { timeout: 1000 * (i + 2) } : {})}>
-              <p {...cursorHandlers} className={classes.right}>
-                {x}
-              </p>
-            </Grow>
-          ))}
-        </Box>
+        <Slide in={open} direction="up">
+          <Box className={classes.modal}>
+            <Box display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
+              {items.map((x, i) => (
+                <Grow in={loaded} style={{ transformOrigin: "0 0 0" }} {...(open ? { timeout: 50 * (i + 2) } : {})}>
+                  <p onClick={() => goTo(x)} className={classes.hamP}>
+                    {x}
+                  </p>
+                </Grow>
+              ))}
+            </Box>
+          </Box>
+        </Slide>
       </Box>
-    </Container>
+    );
+  }
+
+  return (
+    <Box className={classes.root}>
+      <Container maxWidth="lg">
+        <Box display="flex" justifyContent="space-between" style={{ padding: ".5em 0" }} className="navbar">
+          <Box width="60px" display="flex" justifyContent="space-between" className="navbar-left">
+            <UseAnimations strokeColor="#e17c69" loop size={25} animation={github} onClick={openGitHub} />
+            <UseAnimations strokeColor="#e17c69" loop size={25} animation={linkedin} onClick={openLinkedIn} />
+          </Box>
+          <Box display="flex" justifyContent="space-between">
+            {items.map((x, i) => (
+              <Grow in={loaded} style={{ transformOrigin: "0 0 0" }} {...(loaded ? { timeout: 1000 * (i + 2) } : {})}>
+                <p onClick={() => goTo(x)} className={classes.right}>
+                  {x}
+                </p>
+              </Grow>
+            ))}
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

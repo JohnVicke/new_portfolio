@@ -5,7 +5,8 @@ import { CursorContext } from "../context/CursorContext";
 const Cursor = () => {
   const { clientX, clientY } = useMousePosition();
 
-  const [cursor] = useContext(CursorContext);
+  //const [cursor] = useContext(CursorContext);
+  const cursor = { active: true };
 
   return (
     <div
@@ -31,7 +32,7 @@ const Cursor = () => {
           stroke: cursor.active ? "black" : "white",
           strokeWidth: 1,
           fill: cursor.active ? "rgba(255,255,255,.5)" : "black",
-          transition: "transform .2s ease-in-out",
+          transition: "0.1s ease-out",
         }}
       >
         <circle cx="25" cy="25" r="8" />

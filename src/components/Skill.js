@@ -1,6 +1,6 @@
 import React from "react";
 
-const Skill = ({ seg }) => {
+const Skill = ({ skill }) => {
   return <div>SKILL!</div>;
 };
 
