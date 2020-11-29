@@ -1,9 +1,8 @@
+import { Grid, makeStyles } from "@material-ui/core";
 import React from "react";
-import { Grid, Button, makeStyles } from "@material-ui/core";
-import { Parallax } from "react-scroll-parallax";
-import StyledButton from "./StyledButton";
 import alanify from "../assets/alanify_new.png";
 import useResize from "../hooks/useResize";
+import StyledButton from "./StyledButton";
 
 const useStyles = makeStyles(() => ({
   root: {},

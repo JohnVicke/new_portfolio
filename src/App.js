@@ -1,29 +1,22 @@
-import React, { useState, useEffect, useRef, isValidElement, createRef } from "react";
-import { Typewriter } from "react-typewriting-effect";
-import ReactRotatingText from "react-rotating-text";
-import LandingWeb from "./assets/landing_web.svg";
-import LandingMob from "./assets/landing_mob.svg";
-import "./Index.scss";
-import Projects from "./components/Projects";
-import { Parallax, ParallaxProvider } from "react-scroll-parallax";
-
-import { useMediaQuery } from "react-responsive";
-import Navbar from "./components/Navbar";
-import { Container, Box, Grid, makeStyles } from "@material-ui/core";
-import Titles from "./components/Titles";
-import FeaturedProject from "./components/FeaturedProject";
-import Cursor from "./components/Cursor";
-import useMousePosition from "./hooks/useMousePosition";
-import CursorContextProvider from "./context/CursorContext";
-import useCursorHandlers from "./utils/useCursorHandlers";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import image from "./assets/profile_picture.png";
-import StyledButton from "./components/StyledButton";
+import { Box, Container, makeStyles } from "@material-ui/core";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import ReactRotatingText from "react-rotating-text";
+import { ParallaxProvider } from "react-scroll-parallax";
+import LandingMob from "./assets/landing_mob.svg";
+import LandingWeb from "./assets/landing_web.svg";
+import image from "./assets/profile_picture.png";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import StyledButton from "./components/StyledButton";
+import Titles from "./components/Titles";
 import useResize from "./hooks/useResize";
+import "./Index.scss";
 
 const useStyles = makeStyles(() => ({
   headerCTA: {
@@ -64,9 +57,9 @@ const App = () => {
 
   const getLandingLogo = () => {
     return !isMobile ? (
-      <object className="animated" type="image/svg+xml" data={LandingWeb}></object>
+      <object className="animated" type="image/svg+xml" data={LandingWeb} aria-label="vima" />
     ) : (
-      <object className="animated-mobile" type="image/svg+xml" data={LandingMob}></object>
+      <object className="animated-mobile" type="image/svg+xml" data={LandingMob} aria-label="vima" />
     );
   };
 
@@ -150,6 +143,7 @@ const App = () => {
                     margin: "0 auto",
                     overflowX: "hidden",
                   }}
+                  alt="profile picture"
                 />
               </Box>
             </Box>

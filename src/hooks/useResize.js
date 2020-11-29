@@ -1,5 +1,3 @@
-import { isWidthDown } from "@material-ui/core";
-import { update } from "lodash-es";
 import { useState, useEffect } from "react";
 
 const getWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;

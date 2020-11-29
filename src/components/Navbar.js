@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import NavItems from "./NavItems";
+import { Box, Container, Grow, makeStyles, Slide } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import UseAnimations from "react-useanimations";
 import github from "react-useanimations/lib/github";
-import menu from "react-useanimations/lib/menu2";
 import linkedin from "react-useanimations/lib/linkedin";
-import { Box, Container, getContrastRatio, Grow, makeStyles, Slide } from "@material-ui/core";
+import menu from "react-useanimations/lib/menu2";
+import vima from "../assets/vima_no_text.svg";
 import content from "../content/content.json";
 import useResize from "../hooks/useResize";
-import vima from "../assets/vima_no_text.svg";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -57,7 +56,6 @@ const useStyles = makeStyles(() => ({
     left: "50%",
     transform: "translateX(-50%)",
     backgroundColor: "#22223a",
-    width: "100%",
   },
 }));
 
@@ -96,7 +94,7 @@ const Navbar = ({ callback }) => {
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} onClick={openGitHub} />
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={linkedin} onClick={openLinkedIn} />
           </Box>
-          <img src={vima} className={classes.vima} style={{ width: "30px", marginRight: "30px" }} />
+          <img src={vima} alt="vima" className={classes.vima} style={{ width: "30px", marginRight: "30px" }} />
           <UseAnimations
             reverse={open}
             onClick={() => setOpen(!open)}

@@ -1,12 +1,10 @@
-import { Container, Box, makeStyles } from "@material-ui/core";
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import { useSpring, useSprings, animated, interpolate } from "react-spring";
-import VisibilitySensor from "react-visibility-sensor";
+import { Box, makeStyles } from "@material-ui/core";
+import React from "react";
 
-const useStyles = makeStyles((theme, props) => ({
-  root: (props) => ({
-    "& h1": (props) => ({}),
-    "& img": (props) => ({
+const useStyles = makeStyles(() => ({
+  root: () => ({
+    "& h1": () => ({}),
+    "& img": () => ({
       borderRadius: 10,
     }),
   }),
@@ -14,19 +12,14 @@ const useStyles = makeStyles((theme, props) => ({
 
 const Project = (props) => {
   const {
-    project: { image, header, gradient, info, highlight },
+    project: { image, gradient, highlight },
   } = props;
 
   const classes = useStyles({ gradient, highlight: highlight });
 
-  const [open, setOpen] = useState(false);
-
-  if (open) {
-    return <Box>Open LOL!</Box>;
-  }
   return (
     <Box container className={classes.root}>
-      <img src={image} />
+      <img src={image} alt="hej" />
     </Box>
   );
 };

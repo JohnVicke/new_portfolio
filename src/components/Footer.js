@@ -26,11 +26,11 @@ const Footer = () => {
     <Box className={classes.root}>
       <Container maxWidth="xl">
         <Box display="flex" justifyContent="space-between" alignItems="center" className={classes.container}>
-          <img src={vima} className={classes.vima} />
+          <img src={vima} className={classes.vima} alt="vima" />
           <p>Malmedal, Viktor &copy;</p>
           <Box display="flex" alignItems="center" onClick={() => window.scrollTo(0, 0)}>
             <p style={{ marginRight: "20px" }}>Go to top</p>
-            <img src={arrow} className={classes.arrow} />
+            <img src={arrow} className={classes.arrow} alt="arrow" />
           </Box>
         </Box>
       </Container>

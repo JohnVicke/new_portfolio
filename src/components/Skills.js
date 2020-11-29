@@ -1,6 +1,5 @@
-import { Box, Container, Grid, makeStyles } from "@material-ui/core";
+import { Box, Container, makeStyles } from "@material-ui/core";
 import React from "react";
-import Skill from "./Skill";
 import design from "../assets/design.svg";
 import useResize from "../hooks/useResize";
 
@@ -112,6 +111,9 @@ const Skills = () => {
             </div>
           </Box>
         );
+      }
+      default: {
+        return;
       }
     }
   };

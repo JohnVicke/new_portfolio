@@ -1,5 +1,5 @@
-import { Box, Container, Grow, makeStyles } from "@material-ui/core";
-import React, { useState, useEffect, useMemo } from "react";
+import { Box, Container, makeStyles } from "@material-ui/core";
+import React from "react";
 import Feedback from "../assets/360_feedback.svg";
 //import Alanify from "../assets/alanify.svg";
 import Mottagning from "../assets/mottagning300.svg";
