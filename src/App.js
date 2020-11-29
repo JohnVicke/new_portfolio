@@ -143,7 +143,7 @@ const App = () => {
                     margin: "0 auto",
                     overflowX: "hidden",
                   }}
-                  alt="profile picture"
+                  alt="profile"
                 />
               </Box>
             </Box>
