@@ -102,69 +102,69 @@ const App = () => {
   return (
     <div className="root">
       <Navbar callback={goTo} />
-      <ParallaxProvider>
-        <div className="background" />
-        <div className="landing-container">{getLandingLogo()}</div>
-        <div style={{ overflow: "hidden" }}>
-          <Container maxWidth="lg">
-            <Box className="about-me" display="flex" flexDirection="" justifyContent="space-between" id="aboutme">
-              <Box className={classes.headerInfo}>
-                {headingText()}
-                <p style={{ marginTop: "1em" }}>
-                  Since beginning my journey to become a software engineer I've gathered professionel experience working
-                  as a software engineer where I've done remote work for agencies, consulted for startups and teached
-                  code to new students in school.
-                </p>
-                <p style={{ marginTop: "1em" }}>
-                  Developing applications and systems is truly a passion of mine which is reflected in the courses and
-                  personal projects I’ve worked on over the years. In addition to my knowledge base, I actively seek out
-                  new interesting technologies and stay up to date with the industry trends and advancements.
-                </p>
-                <p style={{ marginTop: "2em" }}>
-                  TLDR: <span style={{ fontStyle: "italic" }}>I like to make cool stuff.</span>
-                </p>
-              </Box>
-              <Box className={classes.headerCTA}>
-                <Box className={classes.headerButtons}>
-                  <StyledButton
-                    onClick={() => window.open("https://johnvicke.github.io/resume/")}
-                    style={{ marginBottom: "1em" }}
-                  >
-                    resume
-                  </StyledButton>
-                  <StyledButton onClick={() => goTo("contact")}>contact</StyledButton>
-                </Box>
-                <img
-                  src={image}
-                  style={{
-                    minWidth: "250px",
-                    maxWidth: `${width < 1024 ? "100%" : "400px"}`,
-                    display: "block",
-                    margin: "0 auto",
-                    overflowX: "hidden",
-                  }}
-                  alt="profile"
-                />
-              </Box>
+      <div className="background" />
+      <div className="landing-container">{getLandingLogo()}</div>
+      <div style={{ overflow: "hidden" }}>
+        <Container maxWidth="lg">
+          <Box className="about-me" display="flex" flexDirection="" justifyContent="space-between" id="aboutme">
+            <Box className={classes.headerInfo}>
+              {headingText()}
+              <p style={{ marginTop: "1em" }}>
+                Since beginning my journey to become a software engineer I've gathered professionel experience working
+                as a software engineer where I've done remote work for agencies, consulted for startups and teached code
+                to new students in school.
+              </p>
+              <p style={{ marginTop: "1em" }}>
+                Developing applications and systems is truly a passion of mine which is reflected in the courses and
+                personal projects I’ve worked on over the years. In addition to my knowledge base, I actively seek out
+                new interesting technologies and stay up to date with the industry trends and advancements.
+              </p>
+              <p style={{ marginTop: "2em" }}>
+                TLDR: <span style={{ fontStyle: "italic" }}>I like to make cool stuff.</span>
+              </p>
             </Box>
-          </Container>
-          {width > 1024 && (
-            <Box>
-              <Titles />
+            <Box className={classes.headerCTA}>
+              <Box className={classes.headerButtons}>
+                <StyledButton
+                  onClick={() => window.open("https://johnvicke.github.io/resume/")}
+                  style={{ marginBottom: "1em" }}
+                >
+                  resume
+                </StyledButton>
+                <StyledButton onClick={() => goTo("contact")}>contact</StyledButton>
+              </Box>
+              <img
+                src={image}
+                style={{
+                  minWidth: "250px",
+                  maxWidth: `${width < 1024 ? "100%" : "400px"}`,
+                  display: "block",
+                  margin: "0 auto",
+                  overflowX: "hidden",
+                }}
+                alt="profile"
+              />
             </Box>
-          )}
-          <div id="projects" style={{ margin: `${width > 1025 ? "0" : "4em 0"}` }}>
-            <Projects />
-          </div>
-          <Box style={{ marginTop: width > 1025 ? "4em" : "8em" }} id="skills">
-            <Skills />
           </Box>
-          <Box id="contact">
-            <Contact />
+        </Container>
+        {width > 1024 && (
+          <Box>
+            <ParallaxProvider>
+              <Titles updateParallax={iterations > 1} />
+            </ParallaxProvider>
           </Box>
+        )}
+        <div id="projects" style={{ margin: `${width > 1025 ? "0" : "4em 0"}` }}>
+          <Projects />
         </div>
-        {width > 425 && <Footer />}
-      </ParallaxProvider>
+        <Box style={{ marginTop: width > 1025 ? "4em" : "8em" }} id="skills">
+          <Skills />
+        </Box>
+        <Box id="contact">
+          <Contact />
+        </Box>
+      </div>
+      {width > 425 && <Footer />}
     </div>
   );
 };

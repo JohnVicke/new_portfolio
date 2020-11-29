@@ -12,6 +12,7 @@
     "cursor-dot": "^1.0.5",
     "emailjs-com": "^2.6.4",
     "kursor": "^0.1.6",
+    "locomotive-scroll": "^4.0.4",
     "lodash-es": "^4.17.15",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",

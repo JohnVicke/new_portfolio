@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 
-import { Parallax } from "react-scroll-parallax";
-import React from "react";
+import { Parallax, useController } from "react-scroll-parallax";
+import React, { useEffect } from "react";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -30,8 +30,13 @@ const segments = [
   ["DESIGN", "BACKEND", "FRONTEND", "DESIGN", "BACKEND"],
 ];
 
-const Titles = () => {
+const Titles = ({ updateParallax }) => {
   const classes = useStyles();
+  const { parallaxController } = useController();
+
+  useEffect(() => {
+    if (updateParallax) parallaxController.update();
+  }, [updateParallax, parallaxController]);
 
   const getTransform = (i) => {
     if (i % 2 === 0) {
