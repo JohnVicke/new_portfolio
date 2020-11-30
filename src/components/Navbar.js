@@ -49,6 +49,7 @@ const useStyles = makeStyles(() => ({
     zIndex: 999999,
   },
   hamRoot: {
+    zIndex: 999999,
     bottom: 0,
     width: "100%",
     zIndex: 999,
