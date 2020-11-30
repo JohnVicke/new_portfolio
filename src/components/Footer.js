@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
     backgroundColor: "#111128",
-    padding: "0.5em 0",
+    padding: "0.7em 0",
     "& p": {
       fontSize: "1rem",
     },
@@ -28,7 +28,7 @@ const Footer = () => {
         <Box display="flex" justifyContent="space-between" alignItems="center" className={classes.container}>
           <img src={vima} className={classes.vima} alt="vima" />
           <p>Malmedal, Viktor &copy;</p>
-          <Box display="flex" alignItems="center" onClick={() => window.scrollTo(0, 0)}>
+          <Box display="flex" alignItems="center" onClick={() => window.scrollTo(0, 0)} style={{ cursor: "pointer" }}>
             <p style={{ marginRight: "20px" }}>Go to top</p>
             <img src={arrow} className={classes.arrow} alt="arrow" />
           </Box>

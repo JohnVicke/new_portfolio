@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#22223a",
     width: "100%",
     "& p": {
-      fontSize: ".8rem",
+      fontSize: "1rem",
     },
   },
   right: {
@@ -90,12 +90,13 @@ const Navbar = ({ callback }) => {
     return (
       <Box>
         <Box display="flex" justifyContent="space-between" style={{ padding: "0.5em " }} className={classes.hamRoot}>
-          <Box display="flex" className="navbar-left">
+          <Box display="flex" className="navbar-left" style={{ marginLeft: "20px" }}>
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} onClick={openGitHub} />
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={linkedin} onClick={openLinkedIn} />
           </Box>
           <img src={vima} alt="vima" className={classes.vima} style={{ width: "30px", marginRight: "30px" }} />
           <UseAnimations
+            style={{ marginRight: "20px" }}
             reverse={open}
             onClick={() => setOpen(!open)}
             strokeColor="#e17c69"
