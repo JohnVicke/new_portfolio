@@ -52,7 +52,6 @@ const useStyles = makeStyles(() => ({
     zIndex: 999999,
     bottom: 0,
     width: "100%",
-    zIndex: 999,
     position: "fixed",
     left: "50%",
     transform: "translateX(-50%)",
@@ -89,7 +88,7 @@ const Navbar = ({ callback }) => {
 
   if (width < 425) {
     return (
-      <Box>
+      <Box style={{ zIndex: 99999 }}>
         <Box display="flex" justifyContent="space-between" style={{ padding: "0.5em " }} className={classes.hamRoot}>
           <Box display="flex" className="navbar-left" style={{ marginLeft: "20px" }}>
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} onClick={openGitHub} />
