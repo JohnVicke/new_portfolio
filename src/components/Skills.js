@@ -134,14 +134,16 @@ const Skills = () => {
           className={classes.segContainer}
         >
           {segments.map((seg, i) => (
-            <Box className={classes.seg} style={{ margin: `${getMargin(i)}` }}>
+            <Box key={i} className={classes.seg} style={{ margin: `${getMargin(i)}` }}>
               <Box className={classes.segTop}>
                 <h2>{getHeader(i)}</h2>
                 <p className={classes.segP}>{seg.info}</p>
                 <h3>Technologies used:</h3>
               </Box>
               {seg.skills.map((x, j) => (
-                <p data-aos={`${j % 2 === 0 ? "fade-right" : "fade-left"}`}>{x}</p>
+                <p key={x + j} data-aos={`${j % 2 === 0 ? "fade-right" : "fade-left"}`}>
+                  {x}
+                </p>
               ))}
             </Box>
           ))}

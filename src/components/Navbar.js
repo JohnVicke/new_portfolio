@@ -130,7 +130,12 @@ const Navbar = ({ callback }) => {
           </Box>
           <Box display="flex" justifyContent="space-between">
             {items.map((x, i) => (
-              <Grow in={loaded} style={{ transformOrigin: "0 0 0" }} {...(loaded ? { timeout: 1000 * (i + 2) } : {})}>
+              <Grow
+                key={i}
+                in={loaded}
+                style={{ transformOrigin: "0 0 0" }}
+                {...(loaded ? { timeout: 1000 * (i + 2) } : {})}
+              >
                 <p onClick={() => goTo(x)} className={classes.right}>
                   {x}
                 </p>

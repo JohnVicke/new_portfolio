@@ -35,17 +35,21 @@ const projects = [
     image: Feedback,
     gradient: "#181D29",
     highlight: "#83D6BB",
+    url: "https://github.com/JohnVicke/360_feedback",
   },
   {
     header: "Freshmen kickoff",
     info: "akjsfjkakjfsaskjf",
     image: Mottagning,
+    url: "https://gitlab.com/JohnVicke/puma",
   },
   {
     header: "Pomodoro timer",
     gradient: "#C13A3A",
     highlight: "#C13A3A",
     image: Pomodoro,
+    url: "https://github.com/JohnVicke/pomodoro",
+    live: "https://sharp-bell-93bb11.netlify.app/",
   },
 ];
 

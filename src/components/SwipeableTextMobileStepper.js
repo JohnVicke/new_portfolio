@@ -1,11 +1,10 @@
-import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
@@ -24,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
     height: 50,
     paddingLeft: theme.spacing(4),
     backgroundColor: "#111128",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   img: {
     display: "block",
@@ -55,7 +56,7 @@ function SwipeableTextMobileStepper({ steps }) {
   return (
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
-        <Typography>{tutorialSteps[activeStep].header}</Typography>
+        <p>{tutorialSteps[activeStep].header}</p>
       </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -72,7 +73,12 @@ function SwipeableTextMobileStepper({ steps }) {
         ))}
       </AutoPlaySwipeableViews>
       <MobileStepper
-        style={{ backgroundColor: "#111128", color: "#E17C69" }}
+        style={{
+          backgroundColor: "#111128",
+          color: "#E17C69",
+          borderBottomLeftRadius: 10,
+          borderBottomRightRadius: 10,
+        }}
         steps={maxSteps}
         position="static"
         variant="text"

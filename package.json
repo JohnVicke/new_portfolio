@@ -5,12 +5,14 @@
   "dependencies": {
     "@material-ui/core": "^4.11.1",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "aos": "^2.3.4",
     "cursor-dot": "^1.0.5",
     "emailjs-com": "^2.6.4",
+    "formik": "^2.2.5",
     "kursor": "^0.1.6",
     "locomotive-scroll": "^4.0.4",
     "lodash-es": "^4.17.15",
@@ -28,7 +30,8 @@
     "react-use-gesture": "^8.0.0",
     "react-useanimations": "^2.0.6",
     "react-visibility-sensor": "^5.1.1",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "yup": "^0.31.0"
   },
   "scripts": {
     "start": "react-scripts start",
