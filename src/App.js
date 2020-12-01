@@ -120,7 +120,7 @@ const App = () => {
                 new interesting technologies and stay up to date with the industry trends and advancements.
               </p>
               <p style={{ marginTop: "2em" }}>
-                TLDR: <span style={{ fontStyle: "italic" }}>I like to make cool stuff.</span>
+                TL;DR: <span style={{ fontStyle: "italic" }}>I like to make cool stuff.</span>
               </p>
             </Box>
             <Box className={classes.headerCTA}>
