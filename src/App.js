@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
 
 const App = () => {
   useEffect(() => {
-    AOS.init({ duration: 400, easing: "ease-in-out" });
+    AOS.init({ duration: 400, easing: "ease-in-out", once: true });
   }, []);
   const width = useResize();
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -157,7 +157,7 @@ const App = () => {
         <div id="projects" style={{ margin: `${width > 1025 ? "0" : "4em 0"}` }}>
           <Projects />
         </div>
-        <Box style={{ marginTop: width > 1025 ? "4em" : "8em" }} id="skills">
+        <Box style={{ marginTop: width > 1025 ? "4em" : "0" }} id="skills">
           <Skills />
         </Box>
         <Box id="contact">

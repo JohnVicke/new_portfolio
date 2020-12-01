@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => ({
     color: "#e17c69",
     fontWeight: 800,
     cursor: "pointer",
+    margin: "10px 0",
   },
   modal: {
     paddingTop: "1em",
@@ -56,6 +57,7 @@ const useStyles = makeStyles(() => ({
     left: "50%",
     transform: "translateX(-50%)",
     backgroundColor: "#22223a",
+    padding: "20px",
   },
 }));
 
@@ -94,15 +96,22 @@ const Navbar = ({ callback }) => {
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} onClick={openGitHub} />
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={linkedin} onClick={openLinkedIn} />
           </Box>
-          <img src={vima} alt="vima" className={classes.vima} style={{ width: "30px", marginRight: "30px" }} />
-          <UseAnimations
-            style={{ marginRight: "20px" }}
-            reverse={open}
-            onClick={() => setOpen(!open)}
-            strokeColor="#e17c69"
-            size={30}
-            animation={menu}
+          <img
+            src={vima}
+            alt="vima"
+            className={classes.vima}
+            style={{ width: "30px", marginRight: "30px" }}
+            onClick={() => window.scrollTo(0, 0)}
           />
+          <Box style={{ marginRight: "20px" }}>
+            <UseAnimations
+              reverse={open}
+              onClick={() => setOpen(!open)}
+              strokeColor="#e17c69"
+              size={30}
+              animation={menu}
+            />
+          </Box>
         </Box>
         <Slide in={open} direction="up">
           <Box className={classes.modal}>
