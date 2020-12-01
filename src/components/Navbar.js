@@ -43,8 +43,8 @@ const useStyles = makeStyles(() => ({
     right: 0,
     width: "100%",
     backgroundColor: "#22223a",
-    zIndex: 1,
     overflowY: "hidden",
+    zIndex: 999,
   },
   navbar: {
     zIndex: 999999,
@@ -91,7 +91,7 @@ const Navbar = ({ callback }) => {
   if (width < 425) {
     return (
       <Box style={{ zIndex: 99999 }}>
-        <Box display="flex" justifyContent="space-between" style={{ padding: "0.5em " }} className={classes.hamRoot}>
+        <Box display="flex" justifyContent="space-between" className={classes.hamRoot}>
           <Box display="flex" className="navbar-left" style={{ marginLeft: "20px" }}>
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={github} onClick={openGitHub} />
             <UseAnimations strokeColor="#e17c69" loop size={30} animation={linkedin} onClick={openLinkedIn} />
@@ -113,7 +113,7 @@ const Navbar = ({ callback }) => {
             />
           </Box>
         </Box>
-        <Slide in={open} direction="up">
+        <Slide in={open} direction="up" timeout={200}>
           <Box className={classes.modal}>
             <Box display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
               {items.map((x, i) => (
